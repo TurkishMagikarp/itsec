@@ -1,5 +1,5 @@
 # itsec
-Summary of everything I learned in TryHackme and other cool applications about itSecurity.
+Summary of everything I learned in TryHackme and other cool applications about IT Security.
 
 - [itsec](#itsec)
   - [Commands](#commands)
@@ -125,6 +125,11 @@ Bruteforces website with subdirectories.
 - parameter is IP address
 - scans ports for services
 
+Scans everything you need.
+
+- `-p-` to scan all ports
+- `--script=` for scripts to be executed
+
 ### exiftool
 
 - reads EXIF data from images
@@ -140,6 +145,13 @@ Bruteforces website with subdirectories.
 ### fg
 
 - get a process to the foreground
+
+### dig
+
+- Dig allows us to manually query recursive DNS servers of our choice for information about domains
+- `dig <domain> @<dns-server-ip>`
+- response
+  - Answer: TTL in seconds
 
 ## Linux 
 
@@ -428,7 +440,25 @@ Exchangable Image File Format, has metadata about images files
 - Internet
 - Network Interface
 
+### DNS (Domain Name System)
 
+- Computer sends a request to a DNS server
+- Servers IP is already specified (most of the time via the router or manually)
+- If server is not found in cache, recursive DNS Server is asked and passes the request to a root name server
+- Root name server passes request to appropriate TLD Server
+
+### TLD (Top-Level Domain) Server
+
+- Are split up in extensions
+- E.g. .com will be sent to the TLD Server that handles those domains
+
+### Authorative Server
+
+- TLD passes request to authorative server
+- Actually has an entry for every domain in the world
+- Returns the domain info
+
+Can all be seen via the [dig](#dig) command.
 
 ## Protocols
 
@@ -438,3 +468,14 @@ Exchangable Image File Format, has metadata about images files
 
 ### FTP
 - Layer 7 of OSI, can be accessed with FTP client
+
+## Hacking
+
+- Knowledge is power, the more you know about the target system, the better
+- Get an idea of the landscape you are attacking
+
+### Port Scanning
+
+- Computer uses multiple ports to connect to different web services
+- Port scanning to see if a port is open or not
+- nmap industry standard to perform port scan -> can even execute exploits
